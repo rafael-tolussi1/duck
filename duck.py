@@ -47,22 +47,19 @@ async def meme(ctx):
         picture = discord.File(f)
     # Podemos então enviar esse arquivo como um parâmetro
     await ctx.send(file=picture)
-def get_duck_image_url():    
-    url = 'https://random-d.uk/api/random'
-    res = requests.get(url)
-    data = res.json()
-    return data['url']
 
+@bot.command()
+async def reciclar(ctx, material):
+  
+    reciclagem = {"plastico" :"https://youtu.be/H5rbcjYYTXA",
+                  "oleo usado" : "https://youtu.be/FsV4gAfIPdM",
+                   "cano pvc" : "https://www.youtube.com/shorts/ZE9lsiSGk0w?feature=share", 
+                 "latinha" :"https://www.youtube.com/shorts/ZlHJjfLQe8c?feature=share" }
 
-@bot.command('duck')
-async def duck(ctx):
-    '''Uma vez que chamamos o comando duck, o programa chama a função get_duck_image_url '''
-    image_url = get_duck_image_url()
-    await ctx.send(image_url)
+    
+
+    await ctx.send(reciclagem[material])
 
 
 bot.run("")
-
-
-
 
